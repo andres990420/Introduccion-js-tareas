@@ -22,11 +22,11 @@ function calcularPromedio(numeros)
             sumaTotal += numeros[i];
         }
     return sumaTotal / numeros.length
-}
+};
 
 function calcularMayor(numeros)
 {
-    let mayor = array[0];
+    let mayor = numeros[0];
     for(let i = 0; i < numeros.length; i++)
         {
             if (mayor < numeros[i])
@@ -35,7 +35,7 @@ function calcularMayor(numeros)
                 }
         }
     return mayor;
-}
+};
 
 function calcularMenor(numeros)
 {
@@ -53,7 +53,7 @@ function calcularMenor(numeros)
 function calcularSalarioMensualPromedio(salarioAnual)
 {
     return salarioAnual / 12;
-}
+};
 
 function limpiarDiv()
 {
@@ -61,21 +61,21 @@ function limpiarDiv()
         {
             $divEdades.removeChild($divEdades.firstChild);
         }
-}
+};
 
 function limpiarFormulario()
-    {
-        $botonReset.hidden = true;
-        $botonCalcular.hidden = true;
-        $promedioEdad.hidden = true;
-        $mayorEdad.hidden = true;
-        $menorEdad.hidden = true;
-        document.querySelector("#cantidad-personas").value = null;
-        $mayorSalario.hidden = true;
-        $menorSalario.hidden = true;
-        $promedioSalario.hidden = true;
-        $promedioSalarioMensual.hidden = true;
-    }
+{
+    $botonReset.hidden = true;
+    $botonCalcular.hidden = true;
+    $promedioEdad.hidden = true;
+    $mayorEdad.hidden = true;
+    $menorEdad.hidden = true;
+    document.querySelector("#cantidad-personas").value = null;
+    $mayorSalario.hidden = true;
+    $menorSalario.hidden = true;
+    $promedioSalario.hidden = true;
+    $promedioSalarioMensual.hidden = true;
+};
 
 const $promedioEdad = document.querySelector("#promedio-edades");
 const $mayorEdad = document.querySelector("#mayor-edad");
@@ -86,7 +86,7 @@ const $promedioSalario = document.querySelector("#promedio-salario-anual");
 const $promedioSalarioMensual = document.querySelector("#promedio-salario-mensual");
 const $botonReset = document.getElementById("boton-reset");
 const $botonCalcular = document.getElementById("boton-calcular");
-const $divEdades = document.querySelector("#edades")
+const $divEdades = document.querySelector("#edades");
 
 document.querySelector("#boton-enviar").onclick = function()
 {
@@ -94,35 +94,37 @@ document.querySelector("#boton-enviar").onclick = function()
     $botonReset.hidden = false;
     for(let i=0; i < Number(document.querySelector("#cantidad-personas").value); i++)
     {
-            const $label = document.createElement("label");
-            $label.id = `label-${i}`;
-            $label.textContent = `Ingrese la edad de la persona.`;
-            $divEdades.appendChild($label);
-            
-            const $input = document.createElement("input");
-            $input.id = `edad-${i}`
-
-            $divEdades.appendChild($input);
-            $divEdades.appendChild(document.createElement("br"));
-
-            const $botonAgregar = document.createElement("button");
-            $botonAgregar.className = "boton-agregar";
-            $botonAgregar.id = `boton-agregar-${i}`;
-            $botonAgregar.textContent = "Agregar Salario";
-            $divEdades.appendChild($botonAgregar);
-
-            
-            const $botonEliminar = document.createElement("button");
-            $botonEliminar.className = "boton-eliminar"
-            $botonEliminar.id = `boton-eliminar-${i}`;
-            $botonEliminar.textContent = "Eliminar Salario";
-            $botonEliminar.disabled = true;
-            $divEdades.appendChild($botonEliminar);
+        const $label = document.createElement("label");
+        $label.id = `label-${i}`;
+        $label.textContent = `Ingrese la edad de la persona.`;
+        $divEdades.appendChild($label);
         
-            $divEdades.appendChild(document.createElement("br"));
-    }
+        const $input = document.createElement("input");
+        $input.id = `edad-${i}`
 
-    document.querySelector(".boton-agregar").onclick = function()
+        $divEdades.appendChild($input);
+        $divEdades.appendChild(document.createElement("br"));
+
+        const $botonAgregar = document.createElement("button");
+        $botonAgregar.className = "boton-agregar";
+        $botonAgregar.id = `boton-agregar-${i}`;
+        $botonAgregar.textContent = "Agregar Salario";
+        $botonAgregar.onclick = agregarLabelsInputs;
+        $divEdades.appendChild($botonAgregar);
+
+        
+        const $botonEliminar = document.createElement("button");
+        $botonEliminar.className = "boton-eliminar"
+        $botonEliminar.id = `boton-eliminar-${i}`;
+        $botonEliminar.textContent = "Eliminar Salario";
+        $botonEliminar.disabled = true;
+        $botonEliminar.onclick = eliminarLabelsInputs;
+        $divEdades.appendChild($botonEliminar);
+    
+        $divEdades.appendChild(document.createElement("br"));
+    };
+
+    function agregarLabelsInputs()
     {
         let idNumber = this.id;
         idNumber = idNumber.substring(14);
@@ -145,7 +147,7 @@ document.querySelector("#boton-enviar").onclick = function()
         document.getElementById(`boton-agregar-${idNumber}`).disabled = true;
     };
 
-    document.querySelector(".boton-eliminar").onclick = function()
+    function eliminarLabelsInputs()
     {
         let idNumber = this.id;
         idNumber = idNumber.substring(15);
@@ -156,7 +158,7 @@ document.querySelector("#boton-enviar").onclick = function()
         document.getElementById(`label-salario-${idNumber}`).remove();
         document.getElementById(`input-salario-${idNumber}`).remove();
         document.getElementById(`br${idNumber}`).remove();
-    }
+    };
 }
 
 $botonCalcular.onclick = function()
@@ -164,16 +166,16 @@ $botonCalcular.onclick = function()
     let arrayEdades = [];
     let arraySalarios = [];
     for (let i = 0; i < Number(document.querySelector("#cantidad-personas").value); i++)
+    {
+        arrayEdades.push(Number(document.getElementById(`edad-${i}`).value));
+        if(document.getElementById(`input-salario-${i}`))
         {
-            arrayEdades.push(Number(document.getElementById(`edad-${i}`).value));
-            if(document.getElementById(`input-salario-${i}`))
-                {
-                    if (document.getElementById(`input-salario-${i}`).value !== null || ' ')
-                        {
-                            arraySalarios.push(Number(document.getElementById(`input-salario-${i}`).value))
-                        }
-                }
+            if (document.getElementById(`input-salario-${i}`).value !== null || ' ')
+            {
+                arraySalarios.push(Number(document.getElementById(`input-salario-${i}`).value))
+            }
         }
+    }
 
     $promedioEdad.textContent = `El promedio de edades es tiene:${calcularPromedio(arrayEdades).toFixed(2)}`;
     $mayorEdad.textContent = `La persona con mayor edad tiene:${calcularMayor(arrayEdades)}`;
@@ -181,7 +183,7 @@ $botonCalcular.onclick = function()
     $promedioSalario.textContent = `El promedio de los salarios anuales es:${calcularPromedio(arraySalarios).toFixed(2)}`;
     $mayorSalario.textContent = `El mayor salario anual es:${calcularMayor(arraySalarios)}`;
     $menorSalario.textContent = `El menor salario anual es:${calcularMenor(arraySalarios)}`;
-    $promedioSalarioMensual.textContent = `El promedio de los salarios mensuales es:${calcularPromedio(calcularSalarioMensualPromedio(arraySalarios)).toFixed(2)}`;
+    $promedioSalarioMensual.textContent = `El promedio de los salarios mensuales es:${calcularSalarioMensualPromedio(calcularPromedio(arraySalarios)).toFixed(2)}`;
 
     $promedioEdad.hidden = false;
     $mayorEdad.hidden = false;
