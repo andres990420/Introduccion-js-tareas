@@ -1,3 +1,11 @@
 .error { 
     border-color: red;
 }
+
+.oculto {
+    display: none;
+}
+
+.mostrar{
+    display: initial;
+}

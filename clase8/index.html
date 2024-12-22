@@ -4,29 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="C:\Users\andre\OneDrive\Documents\GitHub\Introduccion-js-tareas\node_modules\bootstrap\dist\css\bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenido</h1>
-    <div>
-        <label>Cuantas personas hay en el grupo familiar?</label><br>
-        <input id="cantidad-personas" type="number" placeholder="1">
-        <button id="boton-enviar" type="button">Enviar</button><br>
-        <div id="edades"></div><br>
-        <div id="resultados">
-            <button id="boton-calcular" hidden type="button">Calcular</button>
-            <button id ="boton-reset" hidden type="reset" >Reiniciar</button><br>
-            <emb hidden id="menor-edad"></emb><br>
-            <emb hidden id="mayor-edad"></emb><br>
-            <emb hidden id="promedio-edades"></emb><br>
-            <emb hidden id="mayor-salario-anual"></emb><br>
-            <emb hidden id="menor-salario-anual"></emb><br>
-            <emb hidden id="promedio-salario-anual"></emb><br>
-            <emb hidden id="promedio-salario-mensual"></emb><br>
-            
+    <h1 class="">Bienvenido</h1>
+    <div class="container-sm mt-3 shadow p-3 mb-5 bg-body-tertiary rounded w-50">
+        <div class="mb-3">
+            <label class="form-label">Cuantas personas hay en el grupo familiar?</label> 
+            <input class="form-control" id="cantidad-personas" type="number" >
+            <div class="invalid-feedback" id="validationNumeroPersonas"></div>
         </div>
+        <button class="btn btn-primary" id="boton-enviar" type="button">Enviar</button>
+    </div>
+
+    <div class="container-sm mt-3 w-50">
+        <div class="container-sm mt-3 mb-3 card invisible" id="div-card">
+            <div class="mb-3 card-body" id="edades"></div>
+        </div>
+        <button class="invisible" id="boton-calcular" type="button" data-toggle="collapse" data-target="#collapse-div" aria-expanded="false">
+            Calcular
+        </button>
+        <button class="invisible" id ="boton-reset" type="reset" data-toggle="collapse" data-target="#collapse-div" aria-expanded="false">
+            Reiniciar
+        </button>
+    </div>
+    <div class="container-sm mt-3 mb-3 w-50" id="resultados">
+        <ul class="list-group invisible">
+            <li class="d-block list-group-item" id="menor-edad"></li>
+            <li class="d-block list-group-item" id="mayor-edad"></li>
+            <li class="d-block list-group-item" id="promedio-edades"></li>
+            <li class="d-block list-group-item d-none" id="mayor-salario-anual"></li>
+            <li class="d-block list-group-item d-none" id="menor-salario-anual"></li>
+            <li class="d-block list-group-item d-none" id="promedio-salario-anual"></li>
+            <li class="d-block list-group-item d-none" id="promedio-salario-mensual"></li>
+        </ul>
     </div>
     <script type="text/javascript" src="tarea-8.js"></script>
     <script type="text/javascript" src="pruebas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
