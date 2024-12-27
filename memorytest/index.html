@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>MemoryTest</title>
+    <style>
+        .columna
+        {
+            border: 1px solid black;
+            pointer-events: none;
+        }
+        .fila
+        {
+            pointer-events: none;
+        }
+
+        .cuadro
+        {
+            height: 25vh;
+            border-color: black;
+            opacity: 1;
+            transition: opacity ease-in-out 0.2s;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .rojo
+        {
+            background-color: red;   
+        }
+        
+        .amarillo
+        {
+            background-color: yellow;
+        }
+        
+        .verde
+        {
+            background-color: green;
+            
+        }
+
+        .tablero
+        {
+            background-color: cadetblue;
+            opacity: .55;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1 class="text-center">MemoryCard Game</h1>
+        <div class="h-100 invisible" id="fin-juego">
+            <p class="text-center h2 text-decoration-underline alert alert-success" >Felicidades has <strong>Ganado!</strong></p>
+        </div>
+
+        <div class="container-fluid tablero" id="tablero">
+            <div class="row fila" id="row">
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro" ></div>
+                </div>
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro"></div>
+                </div>
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro"></div>
+                </div>
+            </div>
+            <div class="row fila" id="row">
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro"></div>
+                </div>
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro"></div>
+                </div>
+                <div class="col columna m-3" id="col">
+                    <div class="cuadro"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center" id="botones">
+            <button class="btn btn-primary btn-lg" type="button" id="iniciar">
+                <i class="bi bi-play-fill"></i> Iniciar
+            </button>
+            <button class="btn btn-danger btn-lg disabled" type="button" id="reiniciar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                </svg>
+                Reiniciar
+            </button>
+        </div>
+    </main>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
