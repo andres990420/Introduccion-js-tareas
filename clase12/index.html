@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Casa de cambio</title>
+</head>
+<body>
+    <main>
+        <div class="card text-center m-5">
+            <div class="card-header bg-success">
+                <h1>Tasa del dia:<input id="fecha" class="form-control text-center" type="date"></h1>
+            </div>
+            <div class="card-body">
+                <input type="number" class="align-content-center w-25 d-inline m-3" id="cambio" value="100">
+                <select class="d-inline w-25" id="selector-1">
+                    <option>EUR</option>
+                </select>
+                <i class="d-inline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="Green" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>  
+                    </svg>
+                </i>
+                <select class="d-inline w-25" id="selector-2">
+                    <option>Elige una moneda</option>
+                    <option>EUR</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary" id="calcular">Calcular</button>
+        </div>
+        <div class="container alert-info">
+            <p style="color: black; font-size: 25px" id="resultado"></p>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+</body>
+</html>
