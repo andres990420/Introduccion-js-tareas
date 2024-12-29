@@ -143,16 +143,16 @@ function definirTipos(tiposPokemonJson) {
     if (listaTipos.length > 1) 
         {
             $tipo1Pokemon.text(listaTipos[0]);
-            $iconoTipo1.attr('src', `icons/pokemon-type-icons/icons/${listaTipos[0]}.svg`);
+            $iconoTipo1.attr('src', `icons/icons/${listaTipos[0]}.svg`);
             $tipo2Pokemon.text('/ ' + listaTipos[1]);
             $iconoTipo2.attr('hidden', false);
-            $iconoTipo2.attr('src', `icons/pokemon-type-icons/icons/${listaTipos[1]}.svg`);
+            $iconoTipo2.attr('src', `icons/icons/${listaTipos[1]}.svg`);
         }
 
     else 
         {
             $tipo1Pokemon.text(listaTipos[0]);
-            $iconoTipo1.attr('src', `icons/pokemon-type-icons/icons/${listaTipos[0]}.svg`);
+            $iconoTipo1.attr('src', `icons/icons/${listaTipos[0]}.svg`);
             $tipo2Pokemon.text('');
             $iconoTipo2.attr('hidden', true);
         }
